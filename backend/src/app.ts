@@ -20,7 +20,7 @@ connectDB(process.env.MONGO_URI || "");
 
 app.use(
   cors({
-    origin: "http://localhost:3000", 
+    origin: "https://webcastle-front-end.vercel.app/", 
     credentials: true,
   })
 );
