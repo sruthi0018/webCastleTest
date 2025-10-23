@@ -5,7 +5,7 @@ export interface IUser extends Document {
   email: string;
   name?: string;
   phone?: string;
-  refreshTokenEnc?: string; // encrypted
+  refreshTokenEnc?: string; 
   calledEvents: string[];
   createdAt: Date;
 }
