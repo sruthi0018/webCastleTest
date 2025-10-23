@@ -9,7 +9,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 export default function Dashboard() {
     const router = useRouter();
   const [me, setMe] = useState<any>(null);
-  const backend = process.env.NEXT_PUBLIC_BACKEND_URL ;
+  const backend = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
     async function fetchMe() {

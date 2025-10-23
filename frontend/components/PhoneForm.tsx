@@ -13,7 +13,7 @@ export default function PhoneForm({ email }: { email: string }) {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
 
-  const backend = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
   // 🔹 Fetch existing phone number when user logs in
   useEffect(() => {
