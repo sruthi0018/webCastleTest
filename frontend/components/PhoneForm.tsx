@@ -13,9 +13,8 @@ export default function PhoneForm({ email }: { email: string }) {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
 
-  const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
+  const backend = process.env.NEXT_PUBLIC_BACKEND_URL;
 
-  // 🔹 Fetch existing phone number when user logs in
   useEffect(() => {
     const fetchPhone = async () => {
       try {
@@ -31,7 +30,7 @@ export default function PhoneForm({ email }: { email: string }) {
     fetchPhone();
   }, [backend]);
 
-  // 🔹 Handle phone save or update
+ 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("");
