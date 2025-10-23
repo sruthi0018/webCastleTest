@@ -29,7 +29,7 @@ export default function Dashboard() {
       <Card className="w-full max-w-lg bg-white shadow-2xl border-none p-6 rounded-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-gray-800 text-center">
-            Dashboard
+            Welcome
           </CardTitle>
         </CardHeader>
         <CardContent>

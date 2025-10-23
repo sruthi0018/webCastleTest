@@ -35,7 +35,7 @@ export default function PhoneForm({ email }: { email: string }) {
         { phone },
         { withCredentials: true }
       );
-      setStatus(res.data.ok ? "Saved successfully" : "Saved");
+      setStatus(res.data.ok ? "Phone number saved successfully. You will receive call reminders for your Google Calendar events." : "Saved");
     } catch (err: any) {
       console.error(err);
       setStatus(`Error: ${err.response?.data?.error || err.message}`);
