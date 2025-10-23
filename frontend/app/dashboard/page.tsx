@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios";
@@ -7,6 +8,7 @@ import PhoneForm from "@/components/PhoneForm";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function Dashboard() {
+    const router = useRouter();
   const searchParams = useSearchParams();
   const email = searchParams.get("email") || "";
   const [me, setMe] = useState<any>(null);
@@ -24,8 +26,18 @@ export default function Dashboard() {
     fetchMe();
   }, [backend]);
 
+  const goBack = () => router.push("/");
+ 
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-100 via-pink-100 to-blue-100">
+      <button
+        onClick={goBack}
+        className="absolute top-4 left-4 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded shadow transition"
+      >
+        ← Back
+      </button>
+
       <Card className="w-full max-w-lg bg-white shadow-2xl border-none p-6 rounded-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-gray-800 text-center">
