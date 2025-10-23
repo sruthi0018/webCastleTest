@@ -15,24 +15,24 @@ app.use(cors({ origin: process.env.FRONTEND_BASE_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-// connect DB
+
 connectDB(process.env.MONGO_URI || "");
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend URL
-    credentials: true, // allow cookies / sessions
+    origin: "http://localhost:3000", 
+    credentials: true,
   })
 );
-// routes
+
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/twilio", twilioRoutes);
 
-// health
+
 app.get("/health", (_req, res) => res.json({ ok: true }));
 
-// start cron worker
+
 startCron();
 
 export default app;
