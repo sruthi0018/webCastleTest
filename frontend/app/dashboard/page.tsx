@@ -2,15 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import PhoneForm from "@/components/PhoneForm";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function Dashboard() {
     const router = useRouter();
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email") || "";
   const [me, setMe] = useState<any>(null);
   const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
 
@@ -57,11 +54,6 @@ export default function Dashboard() {
               <p className="mb-4 text-gray-600 text-center">
                 No active session found. Using redirect email (if available).
               </p>
-              {email ? (
-                <PhoneForm email={email} />
-              ) : (
-                <p className="text-center text-gray-500">Please login first.</p>
-              )}
             </>
           )}
         </CardContent>
