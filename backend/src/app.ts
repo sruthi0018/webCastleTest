@@ -11,12 +11,9 @@ import twilioRoutes from "./routes/twilioRoutes";
 import { startCron } from "./services/cronServices";
 
 const app = express();
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+// app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
-
-
-connectDB(process.env.MONGO_URI || "");
 
 app.use(
   cors({
@@ -24,6 +21,9 @@ app.use(
     credentials: true,
   })
 );
+
+
+connectDB(process.env.MONGO_URI || "");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
