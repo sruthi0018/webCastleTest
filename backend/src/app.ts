@@ -18,6 +18,12 @@ app.use(cookieParser());
 // connect DB
 connectDB(process.env.MONGO_URI || "");
 
+app.use(
+  cors({
+    origin: "http://localhost:3000", // frontend URL
+    credentials: true, // allow cookies / sessions
+  })
+);
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);

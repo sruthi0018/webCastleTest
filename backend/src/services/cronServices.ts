@@ -18,6 +18,7 @@ export function startCron() {
             const start = ev.start?.dateTime || ev.start?.date || "";
             const summary = ev.summary || "Event";
             const message = `Reminder: ${summary} at ${start}`;
+            console.log(user,"uuu")
             await makeCall(user.phone!, message);
             user.calledEvents.push(id);
             await user.save();
