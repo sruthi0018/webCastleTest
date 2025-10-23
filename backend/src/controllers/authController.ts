@@ -36,7 +36,7 @@ export const googleCallback = async (req: Request, res: Response) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET as string, { expiresIn: "7d" });
     res.cookie("session", token, { httpOnly: true, secure: process.env.NODE_ENV === "production", sameSite: "lax" });
 
-    const frontend = process.env.FRONTEND_BASE_URL || "http://localhost:3000";
+    const frontend = process.env.FRONTEND_URL || "http://localhost:3000";
     res.redirect(`${frontend}/dashboard?email=${encodeURIComponent(user.email)}`);
   } catch (err) {
     console.error("oauth callback error", err);
