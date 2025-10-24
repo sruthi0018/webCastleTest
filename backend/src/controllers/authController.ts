@@ -34,12 +34,14 @@ export const googleCallback = async (req: Request, res: Response) => {
     await user.save();
 
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET as string, { expiresIn: "7d" });
-  res.cookie("session", token, {
-      httpOnly: true,                 
-      secure: true,                   
-      sameSite: "none",               
-      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
-    });
+const isProd = process.env.NODE_ENV === "production";
+
+res.cookie("session", token, {
+  httpOnly: true,
+  secure: isProd,
+  sameSite: isProd ? "none" : "lax",
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+});
     const frontend = process.env.FRONTEND_URL;
     res.redirect(`${frontend}/dashboard?email=${encodeURIComponent(user.email)}`);
   } catch (err) {
