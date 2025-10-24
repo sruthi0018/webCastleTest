@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function Home() {
-  const backend = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000";
+  const backend = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
