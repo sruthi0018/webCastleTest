@@ -40,7 +40,7 @@ export const googleCallback = async (req: Request, res: Response) => {
       sameSite: "none",               
       maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
     });
-    const frontend = process.env.FRONTEND_URL || "http://localhost:3000";
+    const frontend = process.env.FRONTEND_URL;
     res.redirect(`${frontend}/dashboard?email=${encodeURIComponent(user.email)}`);
   } catch (err) {
     console.error("oauth callback error", err);
