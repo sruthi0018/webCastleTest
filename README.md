@@ -2,6 +2,9 @@ Google Calendar Event Reminder App
 
 A simple web application that sends phone call reminders for upcoming Google Calendar events using Google OAuth and Twilio API.
 
+🔗 Frontend (Vercel): https://reminder-front-end-gray.vercel.app/
+🔗 Backend (Render): https://webcastletest-35.onrender.com
+
 Features
 ---------
 
